@@ -4,19 +4,21 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <p>
     <mat-form-field>
-      <input type="text" matInput placeholder="Username" formControlName="username">
+      <input type="text" matInput placeholder="Email" formControlName="email">
     </mat-form-field>
+    <!-- <span *ngIf="email.invalid">Please input your email!</span> -->
   </p>
 
   <p>
     <mat-form-field>
       <input type="password" matInput placeholder="Password" formControlName="password">
     </mat-form-field>
+    <!-- <span *ngIf="password.invalid">Please input your Password!</span> -->
   </p>
 
-  <p *ngIf="error" class="error">
+  <div *ngIf="error" class="text-danger">
     {{ error }}
-  </p>
+  </div>
 
   <div class="button">
     <button type="submit" mat-button>Login</button>
