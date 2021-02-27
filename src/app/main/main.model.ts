@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MainComponent } from './main.component';
     MainComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
   ],
   imports: [
     MainRoutingModule
