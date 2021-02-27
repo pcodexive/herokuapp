@@ -1,29 +1,25 @@
-<mat-card>
-    <mat-card-title>Login</mat-card-title>
-<mat-card-content>
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <p>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Email" formControlName="email">
-    </mat-form-field>
-    <!-- <span *ngIf="email.invalid">Please input your email!</span> -->
-  </p>
+<div class="login-form">    
+  <form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+    <h4 class="modal-title">Login to Your Account</h4>
+      <div class="form-group">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Email" name="f-email" formControlName="email">
+        </mat-form-field>
+        <span *ngIf="form.controls.email.invalid">Please input your email!</span>
+      </div>
+     
+      <div class="form-group">
+          <mat-form-field>
+              <input type="password" matInput placeholder="Password" name="f-password"  formControlName="password">
+            </mat-form-field>
+            <span *ngIf="form.controls.password.invalid">Please input your Password!</span>
+      </div>
 
-  <p>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Password" formControlName="password">
-    </mat-form-field>
-    <!-- <span *ngIf="password.invalid">Please input your Password!</span> -->
-  </p>
+      
+      <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
+  </form>			
+  <div class="text-center small">Don't have an account? <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Sign up</a></div>
+</div>
 
-  <div *ngIf="error" class="text-danger">
-    {{ error }}
-  </div>
 
-  <div class="button">
-    <button type="submit" mat-button>Login</button>
-  </div>
-
-</form>
-</mat-card-content>
-</mat-card>
