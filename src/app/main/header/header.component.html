@@ -7,7 +7,7 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">Dashboard</span></a>
           <a class="nav-item nav-link" [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</a>
-          <a class="nav-item nav-link">Logout</a>
+          <a class="nav-item nav-link" (click)="submit()">Logout</a>
         </div>
       </div>
   </nav>
