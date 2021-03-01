@@ -6,14 +6,19 @@
       <mat-form-field>
         <input type="text" matInput placeholder="Email" name="f-email" formControlName="email">
       </mat-form-field>
-      <span *ngIf="form.controls.email.invalid">Please input your email!</span>
+      <mat-error *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+        Please enter your email!
+     </mat-error>
+      <!-- <span *ngIf="form.controls.email.invalid">Please enter your email!</span> -->
     </div>
     
     <div class="form-group">
-        <mat-form-field>
-            <input type="password" matInput placeholder="Password" name="f-password"  formControlName="password">
-          </mat-form-field>
-          <span *ngIf="form.controls.password.invalid">Please input your Password!</span>
+      <mat-form-field>
+        <input [type]="hidepassword ? 'text' : 'password'" matInput placeholder="Password" formControlName="password">
+        <mat-icon matSuffix (click)="hidepassword = !hidepassword">{{hidepassword ? 'visibility' : 
+            'visibility_off'}}</mat-icon>
+      </mat-form-field>
+        <mat-error *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)">Please enter your Password!</mat-error >
     </div>
 
    

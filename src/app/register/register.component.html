@@ -6,17 +6,26 @@
             <mat-form-field>
                 <input type="text" matInput placeholder="Email" formControlName="email">
               </mat-form-field>
+              <mat-error *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+                Please enter your email!
+             </mat-error>
         </div>
         <div class="form-group">
             <mat-form-field>
-                <input type="password" matInput placeholder="Password" formControlName="password">
+                <input [type]="hidepassword ? 'text' : 'password'" matInput placeholder="Password" formControlName="password">
+                <mat-icon matSuffix (click)="hidepassword = !hidepassword">{{hidepassword ? 'visibility' : 
+                    'visibility_off'}}</mat-icon>
               </mat-form-field>
+              <mat-error *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)">Please enter your password!</mat-error>
         </div>
         <div class="form-group">
-            
-                <mat-form-field>
-                    <input type="password" matInput placeholder="Confirm Password" formControlName="cpassword">
-                  </mat-form-field>
+            <mat-form-field>
+                <input [type]="hideCpassword ? 'text' : 'password'" matInput placeholder="Confirm Password" formControlName="cpassword">
+                <mat-icon matSuffix (click)="hideCpassword = !hideCpassword">{{hideCpassword ? 'visibility' : 
+                    'visibility_off'}}</mat-icon>
+            </mat-form-field>
+            <mat-error *ngIf="!form.controls.cpassword.hasError('notEquivalent') && form.controls.cpassword.invalid && (form.controls.cpassword.dirty || form.controls.cpassword.touched)">Please enter your confirm password!</mat-error>
+            <mat-error *ngIf="form.controls.cpassword.hasError('notEquivalent')">Password & Confirm password does not match!</mat-error>
         </div>
 
         <div *ngIf="error" class="text-danger">

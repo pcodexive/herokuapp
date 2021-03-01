@@ -10,7 +10,7 @@
             <div class="col-md-6">
                 <div class="profile-tab">
                             <h5>
-                                Kshiti Ghelani
+                                
                             </h5>
                            
                             <div class="row">
@@ -18,7 +18,7 @@
                                     <label>User Id</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Kshiti123</p>
+                                    <p>{{user.customer_id}}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -26,7 +26,7 @@
                                     <label>Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Kshiti Ghelani</p>
+                                    <p>{{user.first_name}} {{user.last_name}}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -34,25 +34,18 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>kshitighelani@gmail.com</p>
+                                    <p>{{user.email}}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Phone</label>
+                                    <label>Address</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>123 456 7890</p>
+                                    <p>{{user.address[0].street_name}} {{user.address[0].town}} {{user.address[0].country}}</p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Profession</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Web Developer and Designer</p>
-                                </div>
-                            </div>
+                           
                 </div>
             </div>
             

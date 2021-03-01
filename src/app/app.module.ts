@@ -8,6 +8,7 @@ import { AuthGuard } from './shared/authgard.service';
 import { ApiService } from './shared/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard,ApiService],
+  providers: [AuthGuard,ApiService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

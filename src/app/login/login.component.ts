@@ -2,6 +2,7 @@ import { Input, Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
+import { AuthService } from '../shared/auth.service';
 import { LOGIN } from '../shared/url';
 
 @Component({
@@ -13,9 +14,8 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
 
   error: string | null = "";
-
-  @Output() submitEM = new EventEmitter();
-  constructor(private fb:FormBuilder,private api:ApiService,private router:Router) { }
+  hidepassword = false;
+  constructor(private fb:FormBuilder,private api:ApiService,private router:Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
   doLogin(){
     // this.spiner=true;
     this.api.post(LOGIN,this.form.value).subscribe(res=>{
-      localStorage.clear();
-      localStorage.setItem('token', res.token);
+      this.authService.setLocalStorage('token', res.token);
+      this.authService.setLocalStorage('userData', res.user);
       this.router.navigate(['/']);      
     },err =>{
       this.error=err.error[0]
