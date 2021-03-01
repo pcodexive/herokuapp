@@ -45,3 +45,4 @@ typings/
 .vscode/
 package-lock.json
 .history
+dist
