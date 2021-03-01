@@ -1,7 +1,7 @@
 <div class="login-form">    
     <form [formGroup]="form" (ngSubmit)="submit()">
 		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-    	<h4 class="modal-title">Login to Your Account</h4>
+    	<h4 class="modal-title">Register to Your Account</h4>
         <div class="form-group">
             <mat-form-field>
                 <input type="text" matInput placeholder="Email" formControlName="email">
@@ -17,11 +17,14 @@
                 <mat-form-field>
                     <input type="password" matInput placeholder="Confirm Password" formControlName="cpassword">
                   </mat-form-field>
-            
         </div>
+
+        <div *ngIf="error" class="text-danger">
+            <p>{{ error }}</p>
+          </div>
         
-        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
+        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign Up">              
     </form>			
-    <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>
+    <div class="text-center small">Already have account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign In</a></div>
 </div>
 
