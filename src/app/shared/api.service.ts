@@ -20,6 +20,10 @@ export class ApiService {
         return this.http.get(`${environment.api_url}${path}`, { params: params })
             .pipe(catchError(this.formatErrors));
     }
+    getNew(path: string, params: HttpParams = new HttpParams()): Observable<any> {
+        return this.http.get(`${environment.new_url}${path}`, { params: params })
+            .pipe(catchError(this.formatErrors));
+    }
     private formatErrors(error: any) {
         return throwError(error.error);
     }

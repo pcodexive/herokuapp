@@ -26,31 +26,33 @@
 
 <div class="box">
     <div id="overlay">
-      <div class="image">
+      <!-- <div class="image">
         <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
         <div class="trick">
 
         </div>
-      </div>
+      </div> -->
       <ul class="text">Welcome {{user?.first_name}} {{user?.last_name}}</ul>
-      <div class="text1">Manage your subscriptions from here    </div>
 
 
-
-
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading text-center mt-4" role="tab" id="headingOne">
-            <h4 class="panel-title ">
-               
-                <div class="title  btn btn-new btn-outline btn-lg">Create your first subscription</div>
-              <p>You have no active subscriptions</p>
-            </h4>
-            </div>
-            
-        </div>
-        
-        </div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th width="100px" scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Body</th>
+          </tr>
+        </thead>
+        <tbody>
+            <!-- <div class="table-div"> -->
+                <tr *ngFor="let item of posts">
+                    <td width="100px">{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.body}}</td>
+                </tr>
+            <!-- </div> -->
+        </tbody>
+      </table>
         </div>
 </div>
 

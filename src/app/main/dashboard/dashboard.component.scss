@@ -21,11 +21,11 @@
 
 .text {
     font-family: raleway;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
     padding-left: 0%;
     color: #000;
-    margin-top: 100px;
+    // margin-top: 100px;
   }
   
   .text1 {
@@ -95,3 +95,19 @@
   #box:hover #overlay {
     opacity: 1;
   }
+
+
+tbody {
+    display: block;
+    height: 500px;
+    overflow: auto;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;/* even columns width , fix width of table too*/
+}
+thead {
+    width: calc( 100% - 1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+

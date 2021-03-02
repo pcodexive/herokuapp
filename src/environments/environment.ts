@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_url: "https://nestdev.herokuapp.com/v1"
+  api_url: "https://nestdev.herokuapp.com/v1",
+  new_url: "https://jsonplaceholder.typicode.com/"
 };
 
 /*

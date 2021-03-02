@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/shared/api.service';
 import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
@@ -8,11 +9,18 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class DashboardComponent implements OnInit {
   user: any;
+  posts: any;
+  constructor( private authService: AuthService, private apiService: ApiService) { }
 
-  constructor( private authService: AuthService) { }
 
   ngOnInit(): void {
     this.user = this.authService.getUserData();
+    this.getPost()
   }
 
+  getPost() {
+    this.apiService.getNew(`posts`).subscribe(res => {
+      this.posts = res;
+    })
+  }
 }
