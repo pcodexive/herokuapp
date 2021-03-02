@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "start-pwa": "npm run rm-dist && ng build --prod && http-server -p 8080 -c-1 dist/herokuapp",
+    "rm-dist": "rimraf dist",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
